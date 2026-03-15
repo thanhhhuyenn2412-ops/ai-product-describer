@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>AI Product Description Generator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚀 AI Product Description Generator</h1>
+<p class="subtitle">Tạo mô tả sản phẩm tự động bằng AI</p>
+
+<label>Tên sản phẩm</label>
+<input id="productName" placeholder="Ví dụ: Dây chuyền bạc 925">
+
+<label>Tính năng</label>
+<textarea id="features" placeholder="Bạc 925, thiết kế tối giản..."></textarea>
+
+<label>Lợi ích cho khách hàng</label>
+<textarea id="benefits"></textarea>
+
+<label>Từ khóa SEO</label>
+<input id="keywords" placeholder="trang sức bạc, dây chuyền bạc">
+
+<button onclick="generateDescription()">✨ Tạo mô tả</button>
+
+<h2>Kết quả AI</h2>
+
+<div id="result">
+AI sẽ tạo mô tả sản phẩm ở đây...
+</div>
+
+<button onclick="copyText()">📋 Copy nội dung</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
