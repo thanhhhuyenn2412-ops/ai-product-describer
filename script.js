@@ -24,19 +24,21 @@ Bao gồm:
 - tích hợp SEO keywords
 `;
 
-const API_KEY="AIzaSyAAJiluH3e2MOyhdEHKH45YBMPL8966zpQ";
-
 try{
 
 const response = await fetch(
-`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,
+"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAAJiluH3e2MOyhdEHKH45YBMPL8966zpQ",
 {
 method:"POST",
 headers:{
 "Content-Type":"application/json"
 },
 body:JSON.stringify({
-contents:[{parts:[{text:prompt}]}]
+contents:[
+{
+parts:[{text:prompt}]
+}
+]
 })
 }
 );
@@ -45,16 +47,24 @@ const data=await response.json();
 
 console.log(data);
 
-if(data.candidates){
 const text=data.candidates[0].content.parts[0].text;
+
 document.getElementById("result").innerText=text;
-}else{
-document.getElementById("result").innerText="AI không trả nội dung";
-}
 
 }catch(error){
-console.error(error);
+
 document.getElementById("result").innerText="Lỗi gọi AI API";
+
 }
+
+}
+
+function copyText(){
+
+const text=document.getElementById("result").innerText;
+
+navigator.clipboard.writeText(text);
+
+alert("Đã copy nội dung!");
 
 }
